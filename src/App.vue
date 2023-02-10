@@ -2,23 +2,28 @@
   <div id="app">
     <img alt="3G logo" src="./assets/logo.png">
     <PersonalInfo/>
+    <!-- <Information/> -->
   </div>
 </template>
 
 <script>
   import axios from "axios"
   import PersonalInfo from './components/PersonalInfo'
+  import Information from './components/Information'
   export default {
     name: 'App',
     components: {
-      PersonalInfo
-    },
+      PersonalInfo,
+      Information
+    }
   }
 </script>
 
+
 <style>
-  /* base */
-  * {
+ 
+   /* base */
+   * {
       margin: 0;
       padding: 0;
       /*标准盒子 */
@@ -27,7 +32,7 @@
   body {
     background-color: #3e3d3d;
   }
-  img {
+   img {
     position: absolute;
     left: 180px;
     top: 10px;
