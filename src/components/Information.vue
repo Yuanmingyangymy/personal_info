@@ -14,7 +14,6 @@
 
 <script>
 export default {
-
 }
 </script>
 
@@ -26,11 +25,14 @@ export default {
     margin-left: 609px;
     margin-top: 180px;
     box-shadow: 5px 2px 14px 10px #e6e6e6;
+    border-radius: 20px;
 }
 .common{
   font-size: 22px;
   color: #56484a;
   padding: 19px;
+      text-align: center;
+    text-shadow: 0 3px 2px rgb(0 0 0 / 10%);
 }
 .title{
   color: #56484a;
@@ -38,9 +40,8 @@ export default {
     text-align: center;
     border-bottom: 1px solid #c8c0c0;
 }
-
 .apply{
-  color: aquamarine;
+ color: #e17055;;
     margin-left: 414px;
     margin-top: -23px;
     font-weight: bolder;
@@ -53,5 +54,6 @@ export default {
     position: absolute;
     right: 86px;
     top: 553px;
+    color:rgb(230,30,22);
 }
 </style>
