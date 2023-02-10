@@ -7,6 +7,7 @@
 </template>
 
 <script>
+  import axios from "axios"
   import PersonalInfo from './components/PersonalInfo'
   import Information from './components/Information'
   export default {
