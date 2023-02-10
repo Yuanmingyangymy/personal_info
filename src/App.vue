@@ -6,12 +6,13 @@
 </template>
 
 <script>
+  import axios from "axios"
   import PersonalInfo from './components/PersonalInfo'
   export default {
     name: 'App',
     components: {
       PersonalInfo
-    }
+    },
   }
 </script>
 

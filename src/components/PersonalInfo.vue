@@ -1,18 +1,64 @@
 <template>
   <div class="box">
-        <form action="#" id="login" enctype="application/x-www-form-urlencoded">
+        <form action="#" id="login" :model="form" enctype="application/x-www-form-urlencoded">
             <h2>报名</h2>
-            <input type="text" placeholder="姓名" id="username">
-            <input type="text" placeholder="电话号码" id="tel">
-            <input type="text" placeholder="QQ号" id="qq">
-            <button>OK</button>
-            <a id="a2">If you don't already have an account, click here to register</a>
+            <input type="text" placeholder="姓名" id="username" v-model="form.name">
+            <input type="text" placeholder="电话号码" id="tel" v-model="form.tel">
+            <input type="text" placeholder="QQ号" id="qq" v-model="form.qq">
+            <button @click="register">OK</button>
         </form>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'PersonalInfo'
+        name: 'register',
+        data() {
+            return {
+                form: {
+                name: '',
+                tel: '',
+                qq: ''
+                },
+                isnull: false
+            }
+        },
+        methods: {
+            register() {
+                if(this.form.name == '') {
+                this.$message.error('姓名不能为空')
+                } else if(this.form.tel == '') {
+                this.$message.error('电话号码不能为空')
+                } else if(this.form.qq == '') {
+                this.$message.error('qq号不能为空')
+                } else {
+                axios.post('http://127.0.0.1/register', this.form)
+                .then(res => {
+                    // 此处逻辑：登录成功跳转至个人信息页面
+                    if(res.data.status == 200) {
+                    this.$alert('跳转至个人信息页面', '报名成功', {
+                        confirmButtonText: '确定',
+                        callback: action => {
+                        this.$router.push('/index')
+                        }
+                    })
+                    }else if(res.data.status == 202) {
+                    this.$alert('电话号码已存在', '报名失败', {
+                        confirmButtonText: '确定',
+                        callback: action => {
+                        this.form.name = '',
+                        this.form.tel = '',
+                        this.form.qq = ''
+                        }
+                    })
+                    }else {
+                    console.log(res.message);
+                    }
+                }).catch(err => {
+                    console.log('操作失败' + err);
+                })
+                }
+            }
+        },
     }
 </script>
