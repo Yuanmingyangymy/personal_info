@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <img alt="3G logo" src="./assets/logo.png">
-    <PersonalInfo/>
-    <!-- <Information/> -->
+    <!-- <PersonalInfo/> -->
+    <Information/>
   </div>
 </template>
 
