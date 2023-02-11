@@ -39,7 +39,7 @@
   }
   .box {
       width: 400px;
-      height: 400px;
+      height: 500px;
       position: relative;
       left: 650px;
       top: 180px;

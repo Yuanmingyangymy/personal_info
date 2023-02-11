@@ -5,6 +5,8 @@
             <input type="text" placeholder="姓名" id="username" v-model="form.name">
             <input type="text" placeholder="电话号码" id="tel" v-model="form.tel">
             <input type="text" placeholder="QQ号" id="qq" v-model="form.qq">
+            <input type="text" placeholder="所在的专业班级：（例如：软工XXXX）" id="class" v-model="form.class">
+            <input type="text" placeholder="选择方向：IOS/Web/Android/Serve/暂时不定" id="direction" v-model="form.dir">
             <button @click="register">OK</button>
         </form>
     </div>
@@ -18,7 +20,9 @@
                 form: {
                 name: '',
                 tel: '',
-                qq: ''
+                qq: '',
+                class: '',
+                dir: '',
                 },
                 isnull: false
             }
@@ -31,10 +35,12 @@
                 this.$message.error('电话号码不能为空')
                 } else if(this.form.qq == '') {
                 this.$message.error('qq号不能为空')
+                } else if(this.form.dir == '') {
+                this.$message.error('选择方向不能为空')
                 } else {
                 axios.post('http://127.0.0.1/register', this.form)
                 .then(res => {
-                    // 此处逻辑：登录成功跳转至个人信息页面
+                    // 此处逻辑：注册成功跳转至个人信息页面
                     if(res.data.status == 200) {
                     this.$alert('跳转至个人信息页面', '报名成功', {
                         confirmButtonText: '确定',
