@@ -1,19 +1,22 @@
 <template>
   <div id="app">
     <img alt="3G logo" src="./assets/logo.png">
-    <!-- <PersonalInfo/> -->
-    <Information/>
+    <!-- <Register/> -->
+    <Login/>
+    <!-- <Information/> -->
   </div>
 </template>
 
 <script>
   import axios from "axios"
-  import PersonalInfo from './components/PersonalInfo'
+  import Register from './components/Register'
+  import Login from './components/Login'
   import Information from './components/Information'
   export default {
     name: 'App',
     components: {
-      PersonalInfo,
+      Register,
+      Login,
       Information
     }
   }

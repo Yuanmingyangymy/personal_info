@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const home = () => import("../components/Information.vue")    //懒加载
-const login = () => import("../components/PersonalInfo.vue")
+const login = () => import("../components/Register.vue")
 
 const routes = [
   {

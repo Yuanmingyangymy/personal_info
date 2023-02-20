@@ -2,11 +2,11 @@
   <div class="box">
         <form action="#" id="login" :model="form" enctype="application/x-www-form-urlencoded">
             <h2>报名</h2>
-            <input type="text" placeholder="姓名" id="username" v-model="form.name">
-            <input type="text" placeholder="电话号码" id="tel" v-model="form.tel">
-            <input type="text" placeholder="QQ号" id="qq" v-model="form.qq">
-            <input type="text" placeholder="所在的专业班级：（例如：软工XXXX）" id="class" v-model="form.class">
-            <input type="text" placeholder="选择方向：IOS/Web/Android/Serve/暂时不定" id="direction" v-model="form.dir">
+            <input type="text" placeholder="姓名" id="username" v-model.trim="form.name">
+            <input type="text" placeholder="电话号码" id="tel" v-model.trim="form.tel">
+            <input type="text" placeholder="QQ号" id="qq" v-model.trim="form.qq">
+            <input type="text" placeholder="所在的专业班级：（例如：软工XXXX）" id="class" v-model.trim="form.class">
+            <input type="text" placeholder="选择方向：IOS/Web/Android/Serve/暂时不定" id="direction" v-model.trim="form.dir">
             <button @click="register">OK</button>
         </form>
     </div>
@@ -14,7 +14,7 @@
 
 <script>
     export default {
-        name: 'register',
+        name: 'Register',
         data() {
             return {
                 form: {
@@ -40,12 +40,12 @@
                 } else {
                 axios.post('http://127.0.0.1/register', this.form)
                 .then(res => {
-                    // 此处逻辑：注册成功跳转至个人信息页面
+                    // 此处逻辑：注册成功跳转至登录页面
                     if(res.data.status == 200) {
-                    this.$alert('跳转至个人信息页面', '报名成功', {
+                    this.$alert('跳转至登录页面', '报名成功', {
                         confirmButtonText: '确定',
                         callback: action => {
-                        this.$router.push('/index')
+                        this.$router.push('/login')
                         }
                     })
                     }else if(res.data.status == 202) {
