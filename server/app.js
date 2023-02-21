@@ -5,6 +5,8 @@ let app = express()
 // 用于处理跨域问题
 let cors = require('cors')
 
+const joi = require('@hapi/joi')
+
 let router = require('./router')
 
 let bodyParser = require('body-parser')
@@ -16,7 +18,13 @@ app.use(cors())
 // 配置路由
 app.use(router)
 
-
+// 错误中间件
+app.use(function (err, req, res, next) {
+// 数据验证失败
+if (err instanceof joi.ValidationError) return res.send(err)
+// 未知错误
+res.send(err)
+})
 
 
 app.listen(80, () => {

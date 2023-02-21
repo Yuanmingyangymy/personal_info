@@ -7,7 +7,7 @@
             <input type="text" placeholder="QQ号" id="qq" v-model.trim="form.qq">
             <input type="text" placeholder="所在的专业班级：（例如：软工XXXX）" id="class" v-model.trim="form.class">
             <input type="text" placeholder="选择方向：IOS/Web/Android/Serve/暂时不定" id="direction" v-model.trim="form.dir">
-            <button @click="register">OK</button>
+            <button @click="login">OK</button>
         </form>
     </div>
 </template>
@@ -28,7 +28,7 @@
             }
         },
         methods: {
-            register() {
+            login() {
                 if(this.form.name == '') {
                 this.$message.error('姓名不能为空')
                 } else if(this.form.tel == '') {
@@ -38,7 +38,7 @@
                 } else if(this.form.dir == '') {
                 this.$message.error('选择方向不能为空')
                 } else {
-                axios.post('http://127.0.0.1/register', this.form)
+                axios.post('http://127.0.0.1/login', this.form)
                 .then(res => {
                     // 此处逻辑：登录成功跳转至个人信息页面
                     if(res.data.status == 200) {
