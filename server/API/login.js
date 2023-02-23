@@ -1,8 +1,8 @@
 let db = require('../db/index')
 
 exports.login = (req, res) => {
-  let sql = 'select * from user where name = ? and tel = ? and qq = ? and class = ? and dir = ?'
-  db.query(sql, [req.query.name, req.query.tel, req.query.qq, req.query.class, req.query.dir], (err, data) => {
+  let sql = 'select * from user where name = ? and tel = ?'
+  db.query(sql, [req.query.name, req.query.tel], (err, data) => {
       if(err) {
           return res.send({
             status: 400,

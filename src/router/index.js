@@ -4,12 +4,18 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const home = () => import("../components/Information.vue")    //懒加载
-const login = () => import("../components/Register.vue")
+const login = () => import("../components/Login.vue")
+const register = () => import("../components/Register.vue")
 
 const routes = [
   {
     path: '',
-    redirect: '/login'   //重定向
+    redirect: '/register'   //重定向
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: register
   },
   {
     path: '/login',

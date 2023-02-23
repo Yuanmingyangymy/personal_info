@@ -8,7 +8,6 @@
 </template>
 
 <script>
-  import axios from "axios"
   import Register from './components/Register'
   import Login from './components/Login'
   import Information from './components/Information'
@@ -35,7 +34,7 @@
   body {
     background-color: #3e3d3d;
   }
-   img {
+  img {
     position: absolute;
     left: 180px;
     top: 10px;
